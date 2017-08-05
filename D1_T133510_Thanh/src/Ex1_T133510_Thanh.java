@@ -12,6 +12,8 @@ import java.awt.SystemColor;
 import java.awt.Color;
 import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
 
 
@@ -63,7 +65,6 @@ public class Ex1_T133510_Thanh extends JFrame{
 		btnLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				Login();
-				
 			}
 		});
 		getContentPane().add(btnLogin);
@@ -81,6 +82,29 @@ public class Ex1_T133510_Thanh extends JFrame{
 			@Override
 			public void focusLost(FocusEvent e) {
 				txtPass.setBackground(Color.WHITE);
+			}
+		});
+		txtPass.addKeyListener(new KeyListener() {
+			
+			@Override
+			public void keyTyped(KeyEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void keyReleased(KeyEvent e) {
+				// TODO Auto-generated method stub
+				if (e.getKeyCode()==KeyEvent.VK_ENTER){
+					Login();
+				}
+				
+			}
+			
+			@Override
+			public void keyPressed(KeyEvent e) {
+				// TODO Auto-generated method stub
+				
 			}
 		});
 		getContentPane().add(txtPass);
