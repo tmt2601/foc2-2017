@@ -125,7 +125,7 @@ public class Ex1_T133510_Thanh extends JFrame{
 		String userName = txtUser.getText();
 		char[] passArray = txtPass.getPassword();
 		String passWord = new String(passArray);
-		if (userName.equals("admin") && passWord.equals("root")){
+		if (userName.equals("a") && passWord.equals("")){
 			//JOptionPane.showMessageDialog(Ex1_T133510_Thanh.this, "Hello" + userName);
 			MainWindow mainGUI = new MainWindow();
 			mainGUI.setVisible(true);

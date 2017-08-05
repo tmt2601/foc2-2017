@@ -81,11 +81,16 @@ public class MainWindow extends JFrame {
 		setExtendedState(JFrame.MAXIMIZED_BOTH);
 		// Xu li su kien
 		mntmNew.addActionListener(new ActionListener() {
+			int x = 0, y= 0, count = 1;
 			public void actionPerformed(ActionEvent arg0) {
-				JInternalFrame newWindow = new JInternalFrame("New Window1", true, true, true);
+				JInternalFrame newWindow = new JInternalFrame("New Window " + count, true, true, true);
 				newWindow.setVisible(true);
-				newWindow.setSize(300, 300);
 				contentPane.add(newWindow);
+				newWindow.setBounds(x, y, 300, 300);
+				x = x + 30;
+				y = y + 30;
+				count = count + 1;
+				newWindow.toFront(); // window sau nam tren window truoc
 			}
 		});
 	}
