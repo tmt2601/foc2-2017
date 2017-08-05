@@ -1,16 +1,20 @@
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
+import javax.swing.JDesktopPane;
 import javax.swing.JFrame;
+import javax.swing.JInternalFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class MainWindow extends JFrame {
 
-	private JPanel contentPane;
+	private JDesktopPane contentPane;
 
 	/**
 	 * Launch the application.
@@ -38,16 +42,22 @@ public class MainWindow extends JFrame {
 		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
 		
-		JMenu mnNewMenu = new JMenu("New menu");
-		menuBar.add(mnNewMenu);
+		JMenu mnFile = new JMenu("File");
+		menuBar.add(mnFile);
 		
-		JMenuItem mntmNewMenuItem = new JMenuItem("New menu item");
-		mnNewMenu.add(mntmNewMenuItem);
+		JMenuItem mntmNew = new JMenuItem("New");
+		mnFile.add(mntmNew);
 		
-		JMenuItem mntmNewMenuItem_1 = new JMenuItem("New menu item");
-		mnNewMenu.add(mntmNewMenuItem_1);
+		JMenuItem mntmOpen = new JMenuItem("Open");
+		mnFile.add(mntmOpen);
 		
-		JMenu mnNewMenu_1 = new JMenu("New menu");
+		JMenuItem mntmSave = new JMenuItem("Save");
+		mnFile.add(mntmSave);
+		
+		JMenuItem mntmExit = new JMenuItem("Exit");
+		mnFile.add(mntmExit);
+		
+		JMenu mnNewMenu_1 = new JMenu("");
 		menuBar.add(mnNewMenu_1);
 		
 		JMenuItem mntmNewMenuItem_2 = new JMenuItem("New menu item");
@@ -55,11 +65,29 @@ public class MainWindow extends JFrame {
 		
 		JMenuItem mntmNewMenuItem_3 = new JMenuItem("New menu item");
 		mnNewMenu_1.add(mntmNewMenuItem_3);
-		contentPane = new JPanel();
+		
+		JMenu mnEdit = new JMenu("Edit");
+		menuBar.add(mnEdit);
+		
+		JMenu mnTools = new JMenu("Tools");
+		menuBar.add(mnTools);
+		
+		JMenu mnHelp = new JMenu("Help");
+		menuBar.add(mnHelp);
+		contentPane = new JDesktopPane();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		contentPane.setLayout(new BorderLayout(0, 0));
+		contentPane.setLayout(null);
 		setContentPane(contentPane);
 		setExtendedState(JFrame.MAXIMIZED_BOTH);
+		// Xu li su kien
+		mntmNew.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				JInternalFrame newWindow = new JInternalFrame("New Window1", true, true, true);
+				newWindow.setVisible(true);
+				newWindow.setSize(300, 300);
+				contentPane.add(newWindow);
+			}
+		});
 	}
 
 }
