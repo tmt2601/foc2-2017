@@ -62,17 +62,7 @@ public class Ex1_T133510_Thanh extends JFrame{
 		JButton btnLogin = new JButton("Login");
 		btnLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				String userName = txtUser.getText();
-				char[] passArray = txtPass.getPassword();
-				String passWord = new String(passArray);
-				if (userName.equals("admin") && passWord.equals("root")){
-					//JOptionPane.showMessageDialog(Ex1_T133510_Thanh.this, "Hello" + userName);
-					MainWindow mainGUI = new MainWindow();
-					mainGUI.setVisible(true);
-					Ex1_T133510_Thanh.this.setVisible(false);
-				}else{
-					JOptionPane.showMessageDialog(Ex1_T133510_Thanh.this, "Fail");
-				}
+				Login();
 				
 			}
 		});
@@ -104,5 +94,20 @@ public class Ex1_T133510_Thanh extends JFrame{
 		main.setVisible(true);
 		main.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		main.setSize(238,300);
+	}
+
+
+	private void Login() {
+		String userName = txtUser.getText();
+		char[] passArray = txtPass.getPassword();
+		String passWord = new String(passArray);
+		if (userName.equals("admin") && passWord.equals("root")){
+			//JOptionPane.showMessageDialog(Ex1_T133510_Thanh.this, "Hello" + userName);
+			MainWindow mainGUI = new MainWindow();
+			mainGUI.setVisible(true);
+			Ex1_T133510_Thanh.this.setVisible(false);
+		}else{
+			JOptionPane.showMessageDialog(Ex1_T133510_Thanh.this, "Fail");
+		}
 	}
 }
