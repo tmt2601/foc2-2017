@@ -226,6 +226,12 @@ public class CreateAccount extends JFrame {
 		panel_2.setLayout(null);
 		
 		JButton btnBack = new JButton("Back");
+		btnBack.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				CardLayout card = (CardLayout)getContentPane().getLayout();
+				card.previous(getContentPane());
+			}
+		});
 		btnBack.setBounds(189, 11, 97, 23);
 		panel_2.add(btnBack);
 	}
